@@ -10,6 +10,7 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+.expo-shared/
 
 # Native
 .kotlin/
@@ -62,6 +63,12 @@ ios/build/
 ios/*.xcworkspace/
 ios/*.xcodeproj/xcuserdata/
 ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+ios/*.mode1v3
+ios/*.mode2v3
+ios/*.perspectivev3
+ios/*.pbxuser
+ios/*.xcuserstate
+ios/.xcode.env.local
 
 # Android
 android/app/build/
@@ -74,6 +81,10 @@ android/captures/
 android/gradlew
 android/gradlew.bat
 android/gradle/wrapper/gradle-wrapper.jar
+android/app/debug/
+android/app/release/
+android/app/src/main/assets/
+android/app/src/main/res/raw/
 
 # Temporary files
 *.tmp
