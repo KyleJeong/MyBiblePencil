@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "성경 필사",
+    "slug": "bible-copy",
+    "version": "1.0.0",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "requireFullScreen": true,
+      "bundleIdentifier": "com.yourcompany.biblecopy",
+      "buildNumber": "1.0.0",
+      "isTabletOnly": true,
+      "userInterfaceStyle": "light",
+      "infoPlist": {
+        "UIRequiresFullScreen": true,
+        "UIRequiresPersistentWiFi": false,
+        "UIStatusBarHidden": true,
+        "UISupportedInterfaceOrientations": [
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
+        ],
+        "UISupportedInterfaceOrientations~ipad": [
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationPortraitUpsideDown",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
+        ],
+        "UIDeviceFamily": [2],
+        "UIRequiresDeviceCapabilities": ["armv7"]
+      }
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "package": "com.yourcompany.biblecopy",
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "isTabletOnly": true,
+      "softwareKeyboardLayoutMode": "pan",
+      "allowBackup": true,
+      "fullScreen": true
+    }
+  }
+}
