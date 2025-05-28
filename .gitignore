@@ -85,6 +85,7 @@ android/app/debug/
 android/app/release/
 android/app/src/main/assets/
 android/app/src/main/res/raw/
+android/app/debug.keystore
 
 # Temporary files
 *.tmp
