@@ -59,6 +59,35 @@ npx expo prebuild
 npx expo run:ios
 ```
 
+## 다른 컴퓨터에서 설치 및 실행하기
+
+다른 컴퓨터에서 프로젝트를 실행하기 위해서는 다음 단계를 따르세요:
+
+1. 프로젝트 클론:
+```bash
+git clone https://github.com/KyleJeong/MyBiblePencil.git
+cd MyBiblePencil
+```
+
+2. 의존성 설치:
+```bash
+npm install
+```
+
+3. iOS의 경우 추가로:
+```bash
+cd ios
+pod install
+cd ..
+```
+
+4. 앱 실행:
+- 안드로이드: `npx expo run:android`
+- iOS: `npx expo run:ios`
+- 또는 개발 서버: `npx expo start`
+
+> 참고: 다른 컴퓨터에서도 동일한 개발 환경(React Native, Expo, Android Studio 또는 Xcode)이 설치되어 있어야 합니다.
+
 ## 기술 스택
 
 - React Native
