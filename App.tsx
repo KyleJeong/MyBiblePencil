@@ -1,12 +1,13 @@
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import HomeScreen from './src/screens/HomeScreen';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
   return (
     <GestureHandlerRootView style={styles.container}>
-      <HomeScreen />
+      <AppNavigator />
       <StatusBar style="auto" />
     </GestureHandlerRootView>
   );
