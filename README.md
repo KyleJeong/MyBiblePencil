@@ -18,22 +18,71 @@
 
 ## 개발 환경
 
+### 필수 요구사항
 - Flutter 3.19.0
 - Dart 3.3.0
 - Android SDK 35
-- iOS 15.0+
+- Android Studio Hedgehog | 2023.1.1
+
+### 권장 개발 환경
+- Windows 11+ / Ubuntu 22.04+ / macOS 15.5+
+- 16GB RAM 이상
+- 10GB 이상의 여유 디스크 공간
 
 ## 설치 및 실행
 
-1. Flutter 개발 환경 설정
-   ```bash
-   flutter pub get
-   ```
+### 1. 개발 환경 설정
 
-2. 앱 실행
-   ```bash
-   flutter run
-   ```
+#### Flutter SDK 설치
+```bash
+# Flutter SDK 다운로드 및 설치
+git clone https://github.com/flutter/flutter.git
+export PATH="$PATH:`pwd`/flutter/bin"
+flutter doctor
+```
+
+#### Android 개발 환경 설정
+1. Android Studio 설치
+2. Android SDK 설치 (Android Studio > SDK Manager)
+3. 환경 변수 설정
+```bash
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+```
+
+### 2. 프로젝트 설정
+
+```bash
+# 프로젝트 클론
+git clone https://github.com/your_username/my_bible_pencil_flutter.git
+cd my_bible_pencil_flutter
+
+# 의존성 설치
+flutter pub get
+```
+
+### 3. 빌드 및 실행
+
+#### Android 빌드
+```bash
+# 디버그 빌드
+flutter build apk --debug
+
+# 릴리즈 빌드
+flutter build apk --release
+
+# 특정 아키텍처 빌드
+flutter build apk --target-platform android-arm64
+```
+
+#### 앱 실행
+```bash
+# 디버그 모드로 실행
+flutter run
+
+# 특정 디바이스에서 실행
+flutter run -d <device-id>
+```
 
 ## 프로젝트 구조
 
@@ -62,9 +111,3 @@ lib/
 ## 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
-## 연락처
-
-프로젝트 관리자 - [@your_twitter](https://twitter.com/your_twitter)
-
-프로젝트 링크: [https://github.com/your_username/my_bible_pencil_flutter](https://github.com/your_username/my_bible_pencil_flutter)
