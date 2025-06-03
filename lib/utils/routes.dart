@@ -4,4 +4,5 @@ class Routes {
   static const String bibleSelect = '/bible-select';
   static const String write = '/write';
   static const String copy = '/copy';
+  static const String bibleWrite = '/bible-write';
 } 

@@ -5,6 +5,7 @@ import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/bible_select_screen.dart';
 import 'screens/write_screen.dart';
+import 'screens/bible_write_screen.dart';
 import 'utils/routes.dart';
 import 'utils/device_utils.dart';
 import 'services/bible_api_service.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider.value(value: fontService),
           ],
           child: MaterialApp(
-            title: 'My Bible Pencil',
+            title: 'MyBiblePencil',
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
               Routes.home: (context) => const HomeScreen(),
               Routes.bibleSelect: (context) => const BibleSelectScreen(),
               Routes.write: (context) => const WriteScreen(),
+              Routes.bibleWrite: (context) => const BibleWriteScreen(),
             },
           ),
         );

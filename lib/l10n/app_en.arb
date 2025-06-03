@@ -1,5 +1,8 @@
 {
-    "appTitle": "My Bible Pencil",
+    "appTitle": "MyBiblePencil",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
     "oldTestament": "Old Testament",
     "newTestament": "New Testament",
     "selectBook": "Select Book",

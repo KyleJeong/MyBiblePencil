@@ -45,9 +45,9 @@ class _VerseWritingScreenState extends State<VerseWritingScreen> {
       });
 
       final verses = await _bibleApiService.getVerses(
+        widget.translation.id,
         widget.book,
         widget.chapter,
-        widget.translation.id,
       );
 
       setState(() {

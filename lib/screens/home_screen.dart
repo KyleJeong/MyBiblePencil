@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../utils/routes.dart';
 import 'bible_selection_screen.dart';
 import 'saved_verses_screen.dart';
+import 'bible_write_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BibleSelectionScreen(),
+                    builder: (context) => const BibleWriteScreen(),
                   ),
                 );
               },

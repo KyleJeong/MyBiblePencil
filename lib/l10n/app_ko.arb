@@ -1,5 +1,8 @@
 {
-    "appTitle": "나의 성경 필기",
+    "appTitle": "MyBible필사",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
     "oldTestament": "구약",
     "newTestament": "신약",
     "selectBook": "성경책 선택",

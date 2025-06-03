@@ -1,30 +1,70 @@
-# MyBiblePencil
+# My Bible Pencil
 
-> ⚠️ **이 앱은 태블릿(Android)과 아이패드(iPad)에서만 동작합니다. 스마트폰에서는 지원하지 않습니다.**
-
-성경 필사 및 필사 관리 앱 (Flutter)
+성경 필사 앱입니다. 성경 구절을 직접 필사하며 말씀을 묵상할 수 있습니다.
 
 ## 주요 기능
-- 다양한 언어/번역본 선택 및 저장
-- 성경 책/장/절 선택 및 필사
-- 필사 내용 저장 및 불러오기
-- 필사 내역 관리(삭제, 재진입)
-- Android/iOS/iPad 지원
 
-## 빌드 및 실행
-```bash
-flutter pub get
-flutter run # (Android/iOS 시뮬레이터에서 실행)
+- 성경 구절 선택 및 필사
+  - 구약/신약 선택
+  - 성경 책 선택
+  - 장 선택
+  - 구절 필사
+- S Pen 지원
+  - 갤럭시 S Pen을 이용한 자연스러운 필사
+  - 필사 중 스크롤 방지
+- 다국어 지원
+  - 한국어
+  - 영어
+
+## 개발 환경
+
+- Flutter 3.19.0
+- Dart 3.3.0
+- Android SDK 35
+- iOS 15.0+
+
+## 설치 및 실행
+
+1. Flutter 개발 환경 설정
+   ```bash
+   flutter pub get
+   ```
+
+2. 앱 실행
+   ```bash
+   flutter run
+   ```
+
+## 프로젝트 구조
+
+```
+lib/
+  ├── l10n/              # 다국어 지원
+  ├── models/            # 데이터 모델
+  ├── screens/           # 화면
+  ├── services/          # API 서비스
+  └── main.dart          # 앱 진입점
 ```
 
-## 패키지 구조
-- `lib/models/` : 데이터 모델
-- `lib/screens/` : 주요 화면
-- `lib/services/` : API, DB 등 서비스
+## API 연동
 
-## 기여 방법
-1. 이슈/PR 환영합니다!
-2. 포크 후 브랜치에서 작업, PR 보내주세요.
+- Bible API를 사용하여 성경 구절 데이터를 가져옵니다.
+- API 키는 환경 변수로 관리됩니다.
+
+## 기여하기
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 라이선스
-BSD 2-Clause License (see LICENSE)
+
+이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+## 연락처
+
+프로젝트 관리자 - [@your_twitter](https://twitter.com/your_twitter)
+
+프로젝트 링크: [https://github.com/your_username/my_bible_pencil_flutter](https://github.com/your_username/my_bible_pencil_flutter)
