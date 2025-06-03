@@ -1,4 +1,0 @@
-defaultConfig {
-    applicationId "com.young2000.mybiblepencil"
-    // ... 기존 설정 유지
-} 

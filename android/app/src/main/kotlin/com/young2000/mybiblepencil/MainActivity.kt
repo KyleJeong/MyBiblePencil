@@ -1,4 +1,4 @@
-package com.example.my_bible_pencil_flutter
+package com.young2000.mybiblepencil
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,32 +1,37 @@
-name: my_bible_pencil
-description: A new Flutter project.
+name: my_bible_pencil_flutter
+description: "A new Flutter project."
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
   cupertino_icons: ^1.0.2
-  http: ^1.1.0
   shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  http: ^1.1.0
   provider: ^6.0.5
   flutter_staggered_grid_view: ^0.7.0
   path_provider: ^2.1.0
-  sqflite: ^2.3.0
   flutter_svg: ^2.0.9
-  intl: ^0.18.1
-  device_info_plus: ^9.1.2
+  device_info_plus: ^11.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
+  flutter_gen: ^5.4.0
 
 flutter:
   uses-material-design: true
+  generate: true  # This enables the generation of localized strings
   assets:
     - assets/images/
     - assets/icons/

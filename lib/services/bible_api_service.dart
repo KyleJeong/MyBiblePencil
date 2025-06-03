@@ -107,4 +107,20 @@ class BibleApiService {
       throw Exception('Failed to load verses: $e');
     }
   }
+
+  Future<List<Map<String, dynamic>>> getVersions() async {
+    try {
+      final response = await http.get(Uri.parse('$_baseUrl/versions'));
+      
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        final versions = data['data'] as List;
+        return versions.map((version) => version as Map<String, dynamic>).toList();
+      } else {
+        throw Exception('Failed to load versions: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Failed to load versions: $e');
+    }
+  }
 } 
