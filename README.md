@@ -111,3 +111,15 @@ lib/
 ## 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+## Important Note: App Icon Generation
+
+- The app icon is generated from the original image file: `assets/images/logo.jpg`.
+- **Do NOT commit the generated icon files** (e.g., `android/app/src/main/res/mipmap-*`, `ios/Runner/Assets.xcassets/AppIcon.appiconset/`) to git. Only the original image should be tracked.
+- If you clone this project or set up a new development environment, you must generate the app icons by running:
+
+```sh
+flutter pub run flutter_launcher_icons:main
+```
+
+- Make sure to run this command whenever you change the app icon image as well.

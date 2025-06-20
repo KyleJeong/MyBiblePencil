@@ -11,6 +11,73 @@ class BibleApiService {
   static const String _booksEndpoint = '/books.php';
   static const String _versesEndpoint = '/verses.php';
 
+  // 중복 없는 합집합 필터 생성 (정리된 버전)
+  static final Map<String, List<RegExp>> combinedFilters = {
+    'KKJV': [
+      // 특수 태그 및 문자 제거
+      RegExp(r'A'), RegExp(r'i'), RegExp(r'<n>'), RegExp(r'p'), RegExp(r't'),
+    ],
+    'NKJV': [
+      // <i>[숫자†]</i> 등 태그, <pb/>, 모든 <태그> 제거
+      RegExp(r'<[a-zA-Z]>\[\d*†?\]</[a-zA-Z]>'), // <i>[12†]</i> 등
+      RegExp(r'<pb/>'),
+      RegExp(r'</?[a-zA-Z]+>'), // <i>, </i>, <t> 등 모든 태그
+    ],
+    'NIV': [
+      // <a>[숫자]</a> 등 태그, <pb/>
+      RegExp(r'<[a-zA-Z]>\[\d*\]</[a-zA-Z]>'),
+      RegExp(r'<pb/>'),
+    ],
+    'ESV': [
+      // 각주, <pb/>, 모든 <태그>
+      RegExp(r'<[f]>.[^<]*</[f]>'), // <f>내용</f>
+      RegExp(r'<[f]>\[\d*\]</[f]>'),
+      RegExp(r'<pb/>'),
+      RegExp(r'</?[a-zA-Z]+>'),
+    ],
+    'WEB': [
+      // 중괄호 태그
+      RegExp(r'\{.*?\}'),
+    ],
+    'ELBBK': [
+      RegExp(r'<[a-zA-Z]>\[\d*\]</[a-zA-Z]>'),
+      RegExp(r'<pb/>'),
+      RegExp(r'</?[a-zA-Z]+>'),
+    ],
+    'ELB1905_PLUS': [
+      RegExp(r'<S>\d*</S>'),
+    ],
+    'ELB2006': [
+      RegExp(r'<pb/>'),
+      RegExp(r'<[f]>.[^<]*</[f]>'),
+      RegExp(r'<[f]>\[\d*\]</[f]>'),
+      RegExp(r'</?[a-zA-Z]+>'),
+    ],
+    'PDV': [
+      RegExp(r'<pb/>'),
+    ],
+    'FR2': [
+      RegExp(r'<[f]>\[#\d*\]</[f]>'),
+    ],
+    'RV60': [
+      RegExp(r'<[S]>\d*</[S]>'),
+    ],
+    'CUNPS': [
+      RegExp(r'<[f]>.[^<]*</[f]>'),
+    ],
+    'JSS2003': [
+      RegExp(r'<pb/>'),
+    ],
+    'TH_SV': [
+      RegExp(r'<pb/>'),
+      RegExp(r'<[f]>.[^<]*</[f]>'),
+      RegExp(r'<[f]>\[\d*\]</[f]>'),
+    ],
+    'MY_JB': [
+      RegExp(r'<pb/>'),
+    ],
+  };
+
   // 지원되는 언어 목록 가져오기
   Future<List<Map<String, dynamic>>> getLanguages() async {
     try {
@@ -108,9 +175,9 @@ class BibleApiService {
           print('Books list: $books');
           
           final mappedBooks = books.map((book) => {
-            'code': book['book_number'],
+            'code': book['book_number'].toString(),
             'name': book['book_name'],
-            'maxChapter': int.parse(book['max_chapters']),
+            'maxChapter': int.tryParse(book['max_chapters'].toString()) ?? 0,
           }).toList();
           print('Mapped books: $mappedBooks');
           
@@ -155,13 +222,21 @@ class BibleApiService {
           final List<dynamic> verses = data['verses'];
           print('Number of verses received: ${verses.length}');
           print('First verse: ${verses.first}');
+
+          // 중복 없는 합집합 필터 사용
+          final filters = combinedFilters[version.toUpperCase()] ?? [];
           
           final mappedVerses = verses.map((verse) {
+            String content = verse['text'];
+            // 필터 적용
+            for (final filter in filters) {
+              content = content.replaceAll(filter, '');
+            }
             final bibleVerse = BibleVerse(
               book: book,
               chapter: chapter,
               verse: verse['verse_number'].toString(),
-              content: verse['text'],
+              content: content,
             );
             print('Mapped verse: ${bibleVerse.verse} - ${bibleVerse.content}');
             return bibleVerse;
