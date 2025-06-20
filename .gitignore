@@ -46,6 +46,10 @@ app.*.map.json
 
 # Android launcher icons
 android/app/src/main/res/mipmap-*/ic_launcher.png
+android/app/src/main/res/mipmap-*/
+
+# Android drawable outputs
+android/app/src/main/res/drawable-*/
 
 # iOS launcher icons
 ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-*.png
